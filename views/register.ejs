@@ -1,0 +1,46 @@
+<%- include('header'); %>
+<%- include('nav'); %>
+<main>
+<h3>
+    Sign Up
+</h3>
+<form action="/register" method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email">
+    <label for="phone">Phone</label>
+    <input type="text" name="phone" id="phone">
+    <button class="btn btn-success">Submit</button>
+</form>
+</main><%- include('header'); %>
+<%- include('nav'); %>
+<main>
+<h3>Sign Up</h3>
+
+<% if (typeof errors !== 'undefined' && errors.length > 0) { %>
+  <ul style="color: red;">
+    <% errors.forEach(function(error) { %>
+      <li><%= error %></li>
+    <% }); %>
+  </ul>
+<% } %>
+
+<form action="/register" method="POST">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" value="<%= typeof username !== 'undefined' ? username : '' %>">
+
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password">
+
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" value="<%= typeof email !== 'undefined' ? email : '' %>">
+
+    <label for="phone">Phone</label>
+    <input type="text" name="phone" id="phone" value="<%= typeof phone !== 'undefined' ? phone : '' %>">
+
+    <button class="btn btn-success">Submit</button>
+</form>
+</main>
